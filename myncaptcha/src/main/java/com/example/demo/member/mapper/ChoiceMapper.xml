@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.demo.member.mapper.ChoiceMapper">
+
+	<select id="getAll" resultType="com.example.demo.member.domain.Choice">
+		SELECT * FROM ANSWER
+	</select>
+	
+	<select id="selectBybz" parameterType="String" resultType="com.example.demo.member.domain.Choice">
+		SELECT * FROM ANSWER WHERE BZSTNO=#{bzstNo}
+	</select>
+
+	<insert id="insert" parameterType="com.example.demo.member.domain.Choice">
+		INSERT INTO ANSWER VALUES (#{bzstNo},#{panTypeCd})
+	</insert>
+	
+	<delete id="delete">
+		DELETE FROM ANSWER
+	</delete>
+	
+	<select id="count" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM ANSWER
+	</select>
+	
+</mapper>
